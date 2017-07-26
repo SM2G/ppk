@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" ng-app="ppk">
+
+<head>
+    <meta charset="utf-8">
+    <title>PPK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate-3.5.2.min.css">
+
+    <!-- Base -->
+    <link rel="stylesheet" href="css/ppk.css">
+
+    <!-- Ripple -->
+    <link rel="stylesheet" href="css/ripple.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+
+</head>
+
+<body>
+    <div class="chat" ng-controller="ChatController as chatCtrl">
+        <div class="chat_header">
+            <img class="chat_avatar" src="img/avatar-20170725-7.jpeg"></img>
+            <strong>
+                <a style="color:black">&#x2660;</a>
+                <a class="text-danger">&#x2665;</a>
+                <a style="color:black">&#x2663;</a>
+                <a class="text-danger">&#x2666;</a> Moneypenny
+            </strong>
+            <div class="chat_status">{{ chatCtrl.status }}</div>
+        </div>
+        <div class="chat_s" id="chatbox">
+            <div class="chat_bubble-1">Need some advice? &#x1F609;</div>
+        </div>
+        <div class="chat_input">
+            <div class="input-group">
+                <input placeholder="Type here..." class="form-control chat_text" type="text" ng-keydown="$event.keyCode === 13 && chatCtrl.add()" autofocus>
+                <span class="input-group-btn">
+                    <button ng-click="chatCtrl.add()" class="btn btn-default chat_submit" type="button">
+                        <a class="fa fa-fw fa-send text-primary"></a>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="js/bootstrap-3.3.7.min.js"></script>
+
+    <!-- Angular JS -->
+    <script type="text/javascript" src="js/angular-1-6-4.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script type="text/javascript" src="js/fontawesome.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="js/ppk.js"></script>
+
+    <!-- Google Analytics -->
+
+</body>
+
+</html>

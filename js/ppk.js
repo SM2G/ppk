@@ -13,7 +13,7 @@ app.controller('ChatController', function () {
             var king_counter =  (a.match(/K/g) || []).length;
             var queen_counter = (a.match(/Q/g) || []).length;
             var jacks_counter = (a.match(/J/g) || []).length;
-            var ten_counter =   (a.match(/10/g) || []).length;
+            var ten_counter =   (a.match(/T/g) || []).length;
             var nine_counter =  (a.match(/9/g) || []).length;
             var eight_counter = (a.match(/8/g) || []).length;
             var seven_counter = (a.match(/7/g) || []).length;
@@ -87,7 +87,7 @@ app.controller('ChatController', function () {
         window.scrollTo(0,document.body.scrollHeight);
         setTimeout(function() {document.getElementsByClassName('chat')[0].innerHTML
         += '<li class="other"><div class="msg"><p>'
-        + answer + document.body.scrollHeight
+        + answer
         + '</p><time>'
         + currtime
         + '</time></div></li>'},300);

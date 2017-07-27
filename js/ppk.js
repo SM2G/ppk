@@ -68,23 +68,30 @@ app.controller('ChatController', function () {
 
         var answer = input_parser();
 
-        const chatbox = document.getElementById('chatbox');
+        var currentdate = new Date();
+        var currtime = "" //+ currentdate.getDate() + "/"
+                        //+ (currentdate.getMonth()+1)  + "/"
+                        //+ currentdate.getFullYear() + " "
+                        + currentdate.getHours() + ":"
+                        + currentdate.getMinutes() + ":";
+                        //+ currentdate.getSeconds();
 
-        function scrollToBottom() {
-          chatbox.scrollTop = chatbox.scrollHeight;
-        }
 
         // Adding message
-        scrollToBottom();
-        document.getElementsByClassName('chat_s')[0].innerHTML
-        += '<div class="chat_bubble-2">'
+        document.getElementsByClassName('chat')[0].innerHTML
+        += '<li class="self"><div class="msg"><p>'
         + document.getElementsByClassName('chat_text')[0].value
-        + '</div>'
-        setTimeout(function() {document.getElementsByClassName('chat_s')[0].innerHTML
-        += '<div class="chat_bubble-1">'
-        + answer
-        + '</div>'},300);
-        scrollToBottom();
+        + '</p><time>'
+        + currtime
+        + '</time></div></li>';
+        window.scrollTo(0,document.body.scrollHeight);
+        setTimeout(function() {document.getElementsByClassName('chat')[0].innerHTML
+        += '<li class="other"><div class="msg"><p>'
+        + answer + document.body.scrollHeight
+        + '</p><time>'
+        + currtime
+        + '</time></div></li>'},300);
+        setTimeout(function() {window.scrollTo(0,document.body.scrollHeight)},300);
     };
 
 });

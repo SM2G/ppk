@@ -85,6 +85,7 @@ app.controller('ChatController', function () {
         + currtime
         + '</time></div></li>';
         window.scrollTo(0,document.body.scrollHeight);
+        document.getElementsByClassName('chat_text')[0].value = "";
         setTimeout(function() {document.getElementsByClassName('chat')[0].innerHTML
         += '<li class="other"><div class="msg"><p>'
         + answer

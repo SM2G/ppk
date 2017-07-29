@@ -79,7 +79,8 @@ app.controller('ChatController', function () {
 
         // Adding message
         document.getElementsByClassName('chat')[0].innerHTML
-        += '<li class="self"><div class="msg"><p>'
+        += '<li class="self">'
+        + '<div class="avatar"><img src="img/avatar-20170729-2.jpeg" draggable="false"/></div><div class="msg"><p>'
         + document.getElementsByClassName('chat_text')[0].value
         + '</p><time>'
         + currtime
@@ -87,7 +88,9 @@ app.controller('ChatController', function () {
         window.scrollTo(0,document.body.scrollHeight);
         document.getElementsByClassName('chat_text')[0].value = "";
         setTimeout(function() {document.getElementsByClassName('chat')[0].innerHTML
-        += '<li class="other"><div class="msg"><p>'
+        += '<li class="other">'
+        + '<div class="avatar"><img src="img/avatar-20170725-7.jpeg" draggable="false"/></div>'
+        + '<div class="msg"><p>'
         + answer
         + '</p><time>'
         + currtime

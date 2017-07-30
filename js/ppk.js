@@ -7,7 +7,7 @@ app.controller('ChatController', function () {
 
         function input_parser() {
             a = document.getElementsByClassName('chat_text')[0].value.toUpperCase();
-            answer = "There's "
+            hand = ""
             // Decoding
             var ace_counter =   (a.match(/1/g) || []).length;
             var king_counter =  (a.match(/K/g) || []).length;
@@ -22,48 +22,76 @@ app.controller('ChatController', function () {
             var four_counter =  (a.match(/4/g) || []).length;
             var three_counter = (a.match(/3/g) || []).length;
             var two_counter =   (a.match(/2/g) || []).length;
+            var suited =        (a.match(/S/g) || []).length;
 
-            // Preparing answer
+            // Preparing hand
             if (ace_counter > 0){
-                answer = answer + "and " + ace_counter + " Ace "
+                card = "1"
+                hand = hand + card.repeat(ace_counter)
             }
             if (king_counter > 0){
-                answer = answer + "and " + king_counter + " King "
+                card = "K"
+                hand = hand + card.repeat(king_counter)
             }
             if (queen_counter > 0){
-                answer = answer + "and " + queen_counter + " Queen "
+                card = "Q"
+                hand = hand + card.repeat(queen_counter)
             }
             if (jacks_counter > 0){
-                answer = answer + "and " + jacks_counter + " Jack "
+                card = "J"
+                hand = hand + card.repeat(jacks_counter)
             }
             if (ten_counter > 0){
-                answer = answer + "and " + ten_counter + " ten "
+                card = "T"
+                hand = hand + card.repeat(ten_counter)
             }
             if (nine_counter > 0){
-                answer = answer + "and " + nine_counter + " nine "
+                card = "9"
+                hand = hand + card.repeat(nine_counter)
             }
             if (eight_counter > 0){
-                answer = answer + "and " + eight_counter + " eight "
+                card = "8"
+                hand = hand + card.repeat(eight_counter)
             }
             if (seven_counter > 0){
-                answer = answer + "and " + seven_counter + " seven "
+                card = "7"
+                hand = hand + card.repeat(seven_counter)
             }
             if (six_counter > 0){
-                answer = answer + "and " + six_counter + " six "
+                card = "6"
+                hand = hand + card.repeat(six_counter)
             }
             if (five_counter > 0){
-                answer = answer + "and " + five_counter + " five "
+                card = "5"
+                hand = hand + card.repeat(five_counter)
             }
             if (four_counter > 0){
-                answer = answer + "and " + four_counter + " four "
+                card = "4"
+                hand = hand + card.repeat(four_counter)
             }
             if (three_counter > 0){
-                answer = answer + "and " + three_counter + " three "
+                card = "3"
+                hand = hand + card.repeat(three_counter)
             }
             if (two_counter > 0){
-                answer = answer + "and " + two_counter + " two "
+                card = "2"
+                hand = hand + card.repeat(two_counter)
             }
-            return answer + "!";
+
+            // Suited Hand
+
+            if (suited > 0){
+                card = "s"
+                hand = hand + "s"
+            } else {
+                hand = hand + "u"
+            }
+
+            // Hand Analysis
+
+            return "Hand is: "+ hand
+                + "</br>"
+                + "My advice..."
         };
 
         var answer = input_parser();
@@ -73,7 +101,7 @@ app.controller('ChatController', function () {
                         //+ (currentdate.getMonth()+1)  + "/"
                         //+ currentdate.getFullYear() + " "
                         + currentdate.getHours() + ":"
-                        + currentdate.getMinutes() + ":";
+                        + currentdate.getMinutes();
                         //+ currentdate.getSeconds();
 
 

@@ -8,7 +8,7 @@
 }
 
 html, body {
-    background: #e5e5e5;
+    background: url("../img/vertical_cloth.png");
     font-family: 'Lato', sans-serif;
     margin: 0px auto;
 }
@@ -236,7 +236,7 @@ html, body {
 
 .msg time {
     font-size: 1.1rem;
-    color: #ccc;
+    color: #FFF;
     margin-top: 3px;
     float: right;
     cursor: default;
@@ -247,7 +247,7 @@ html, body {
 }
 .msg time:before{
     content:"\f017";
-    color: #ddd;
+    color: #FFF;
     font-family: FontAwesome;
     display: inline-block;
     margin-right: 4px;

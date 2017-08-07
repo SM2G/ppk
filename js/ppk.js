@@ -88,10 +88,14 @@ app.controller('ChatController', function () {
             }
 
             // Hand Analysis
-
-            return "Hand is: "+ hand
-                + "</br>"
-                + "My advice..."
+            if (hand.length < 3){
+                answer = "Sorry, I don't understand."
+            } else {
+                answer = "Hand is: "+ hand + " lenght " + hand.length
+                    + "</br>"
+                    + "My advice..."
+            }
+            return answer
         };
 
         var answer = input_parser();

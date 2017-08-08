@@ -9,7 +9,7 @@ app.controller('ChatController', function () {
             a = document.getElementsByClassName('chat_text')[0].value.toUpperCase();
             hand = ""
             // Decoding
-            var ace_counter =   (a.match(/1/g) || []).length;
+            var ace_counter =   (a.match(/A/g) || []).length;
             var king_counter =  (a.match(/K/g) || []).length;
             var queen_counter = (a.match(/Q/g) || []).length;
             var jacks_counter = (a.match(/J/g) || []).length;
@@ -26,7 +26,7 @@ app.controller('ChatController', function () {
 
             // Preparing hand
             if (ace_counter > 0){
-                card = "1"
+                card = "A"
                 hand = hand + card.repeat(ace_counter)
             }
             if (king_counter > 0){
@@ -79,7 +79,6 @@ app.controller('ChatController', function () {
             }
 
             // Suited Hand
-
             if (suited > 0){
                 card = "s"
                 hand = hand + "s"
@@ -87,47 +86,64 @@ app.controller('ChatController', function () {
                 hand = hand + "u"
             }
 
+            // Hands
+            var tier1 = "AAu KKu QQu JJu TTu AKs AQs AKu AQu"
+            var tier2 = "99u 88u 77u AJs ATs KQs KJs KTs QJs QTs JTs J9s T9s 98s AJu KQu KJu QJu JTu"
+            var tier3 = "66u 55u 44u 33u 22u A9s A8s A7s A6s A5s A4s A3s A2s K9s K8s K7s K6s K5s K4s K3s K2s Q9s Q8s J8s T8s 87s ATu KTu QTu J9u T9u 98u 97u"
+
             // Hand Analysis
             if (hand.length < 3){
                 answer = "Sorry, I don't understand."
-            } else {
-                answer = "Hand is: "+ hand + " lenght " + hand.length
-                    + "</br>"
-                    + "My advice..."
-            }
-            return answer
-        };
-
-        var answer = input_parser();
-
-        var currentdate = new Date();
-        var currtime = "" //+ currentdate.getDate() + "/"
-                        //+ (currentdate.getMonth()+1)  + "/"
-                        //+ currentdate.getFullYear() + " "
-                        + currentdate.getHours() + ":"
-                        + currentdate.getMinutes();
-                        //+ currentdate.getSeconds();
-
-
-        // Adding message
-        document.getElementsByClassName('chat')[0].innerHTML
-        += '<li class="self">'
-        + '<div class="avatar"><img src="img/avatar-20170729-2.jpeg" draggable="false"/></div><div class="msg"><p>'
-        + document.getElementsByClassName('chat_text')[0].value
-        + '</p><time>'
-        + currtime
-        + '</time></div></li>';
-        window.scrollTo(0,document.body.scrollHeight);
-        document.getElementsByClassName('chat_text')[0].value = "";
-        setTimeout(function() {document.getElementsByClassName('chat')[0].innerHTML
-        += '<li class="other">'
-        + '<div class="avatar"><img src="img/avatar-20170725-7.jpeg" draggable="false"/></div>'
-        + '<div class="msg"><p>'
-        + answer
-        + '</p><time>'
-        + currtime
-        + '</time></div></li>'},300);
-        setTimeout(function() {window.scrollTo(0,document.body.scrollHeight)},300);
+            } else if (tier1.indexOf(hand) > 0 ) {
+                answer = "Hand is: "+ hand
+                + "</br>"
+                + "Great hand!"
+            } else if (tier2.indexOf(hand) > 0 ) {
+                answer = "Hand is: "+ hand
+                + "</br>"
+                + "Good hand, let's do it!"
+            } else if (tier3.indexOf(hand) > 0 ) {
+                answer = "Hand is: "+ hand
+                + "</br>"
+                + "I hope you have a good bluff..."
+        } else {
+            answer = "Hand is: "+ hand
+            + "</br>"
+            + "Well, not sure exactly what to do with that."
+        }
+        return answer
     };
+
+    var answer = input_parser();
+
+    var currentdate = new Date();
+    var currtime = "" //+ currentdate.getDate() + "/"
+    //+ (currentdate.getMonth()+1)  + "/"
+    //+ currentdate.getFullYear() + " "
+    + currentdate.getHours() + ":"
+    + currentdate.getMinutes();
+    //+ currentdate.getSeconds();
+
+
+    // Adding message
+    document.getElementsByClassName('chat')[0].innerHTML
+    += '<li class="self">'
+    + '<div class="avatar"><img src="img/avatar-20170729-2.jpeg" draggable="false"/></div><div class="msg"><p>'
+    + document.getElementsByClassName('chat_text')[0].value
+    + '</p><time>'
+    + currtime
+    + '</time></div></li>';
+    window.scrollTo(0,document.body.scrollHeight);
+    document.getElementsByClassName('chat_text')[0].value = "";
+    setTimeout(function() {document.getElementsByClassName('chat')[0].innerHTML
+    += '<li class="other">'
+    + '<div class="avatar"><img src="img/avatar-20170725-7.jpeg" draggable="false"/></div>'
+    + '<div class="msg"><p>'
+    + answer
+    + '</p><time>'
+    + currtime
+    + '</time></div></li>'},300);
+    setTimeout(function() {window.scrollTo(0,document.body.scrollHeight)},300);
+};
 
 });

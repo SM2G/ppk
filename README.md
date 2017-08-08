@@ -11,7 +11,7 @@ Use the following codes to enter your poker hand.
 
 | Card        | PPK Code | Example hand |
 | ----------- |:--------:| ------------:|
-| Ace         | 1        | 🂮🂡 - K1      |
+| Ace         | A        | 🂮🂡 - KA      |
 | King        | K        | 🂮🂮 - KK      |
 | Queen       | Q        | 🂮🂭 - KQ      |
 | Jacks       | J        | 🂮🂫 - KJ      |

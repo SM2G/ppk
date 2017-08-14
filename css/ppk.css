@@ -82,6 +82,17 @@ html, body {
     opacity: 0.6;
     cursor: default;
 }
+.info {
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    top: -25px;
+    right: 0px;
+    line-height: 50px;
+    font-size: 30px;
+    padding-top: 10px;
+    cursor: pointer;
+}
 
 /* M E S S A G E S */
 

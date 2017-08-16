@@ -87,9 +87,9 @@ app.controller('ChatController', function () {
             }
 
             // Hands
-            var tier1 = "AAu KKu QQu JJu TTu AKs AQs AKu AQu"
-            var tier2 = "99u 88u 77u AJs ATs KQs KJs KTs QJs QTs JTs J9s T9s 98s AJu KQu KJu QJu JTu"
-            var tier3 = "66u 55u 44u 33u 22u A9s A8s A7s A6s A5s A4s A3s A2s K9s K8s K7s K6s K5s K4s K3s K2s Q9s Q8s J8s T8s 87s ATu KTu QTu J9u T9u 98u 97u"
+            var tier1 = " AAu KKu QQu JJu TTu AKs AQs AKu AQu"
+            var tier2 = " 99u 88u 77u AJs ATs KQs KJs KTs QJs QTs JTs J9s T9s 98s AJu KQu KJu QJu JTu"
+            var tier3 = " 66u 55u 44u 33u 22u A9s A8s A7s A6s A5s A4s A3s A2s K9s K8s K7s K6s K5s K4s K3s K2s Q9s Q8s J8s T8s 87s ATu KTu QTu J9u T9u 98u 97u"
 
             // Hand Analysis
             if (hand.length < 3){
@@ -97,19 +97,19 @@ app.controller('ChatController', function () {
             } else if (tier1.indexOf(hand) > 0 ) {
                 answer = "Hand is: "+ hand
                 + "</br>"
-                + "Great hand!"
+                + "Great hand! &#x1F600;"
             } else if (tier2.indexOf(hand) > 0 ) {
                 answer = "Hand is: "+ hand
                 + "</br>"
-                + "Good hand, let's do it!"
+                + "Good hand, let's do it! &#x1F609;"
             } else if (tier3.indexOf(hand) > 0 ) {
                 answer = "Hand is: "+ hand
                 + "</br>"
-                + "I hope you have a good bluff..."
+                + "I hope you have a good bluff... &#x1F914;"
         } else {
             answer = "Hand is: "+ hand
             + "</br>"
-            + "Well, not sure exactly what to do with that."
+            + "That's <strong>garbage hand</strong>. Throw that away. &#x1F612;"
         }
         return answer
     };

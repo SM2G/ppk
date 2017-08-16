@@ -1,9 +1,7 @@
 # PPK
 
-Small handy chat app that provides Poker hand strength analysis.
-Please note, this is currently a *very alpha* project.
-
-More to come, stay tuned.
+Small JavaScript app that provides Poker hand strength analysis while looking just like a regular chat app.
+Please note, this is still a *work in progress* project.
 
 ## Speak *PPK*!
 
@@ -31,3 +29,8 @@ Then, there's *suited* or *unsuited* cards.
 | ----------- |:--------:| ------------:|
 | Suited      | S        | 🃛🃙 - J9s     |
 | Unsuited    | U        | 🃒🂥 - 25u     |
+
+## Gameplay note
+
+This app is only aimed at providing basic Poker advice and should only be used in casual games.
+You're the only one responsible for your gameplay strategy. Use at your own risks.

@@ -92,24 +92,20 @@ app.controller('ChatController', function () {
             var tier3 = " 66u 55u 44u 33u 22u A9s A8s A7s A6s A5s A4s A3s A2s K9s K8s K7s K6s K5s K4s K3s K2s Q9s Q8s J8s T8s 87s ATu KTu QTu J9u T9u 98u 97u"
 
             // Hand Analysis
-            if (hand.length < 3){
+            if (hand.length <> 3 ){
                 answer = "Sorry, I don't understand."
             } else if (tier1.indexOf(hand) > 0 ) {
-                answer = "Hand is: "+ hand
-                + "</br>"
-                + "Great hand! &#x1F600;"
+                answer = "Great hand! &#x1F600;"
+                //+ "</br>" + "Hand is: "+ hand
             } else if (tier2.indexOf(hand) > 0 ) {
-                answer = "Hand is: "+ hand
-                + "</br>"
-                + "Good hand, let's do it! &#x1F609;"
+                answer = "Good hand, let's do it! &#x1F609;"
+                //+ "</br>" + "Hand is: "+ hand
             } else if (tier3.indexOf(hand) > 0 ) {
-                answer = "Hand is: "+ hand
-                + "</br>"
-                + "I hope you have a good bluff... &#x1F914;"
+                answer = "I hope you have a good bluff... &#x1F914;"
+                //+ "</br>" + "Hand is: "+ hand
         } else {
-            answer = "Hand is: "+ hand
-            + "</br>"
-            + "That's <strong>garbage hand</strong>. Throw that away. &#x1F612;"
+            answer = "That's <strong>garbage hand</strong>. Throw that away. &#x1F612;"
+            //+ "</br>" + "Hand is: "+ hand
         }
         return answer
     };
